@@ -1,4 +1,4 @@
-package core;
+package com.core;
 
 import java.util.Scanner;
 
@@ -17,7 +17,7 @@ public class Main {
         Scanner scanner= new Scanner(System.in);
         numberOfPlayers = scanner.nextInt();
 
-        Game game= new Game(numberOfPlayers);
+        com.core.Game game= new com.core.Game(numberOfPlayers);
 
     }
 }

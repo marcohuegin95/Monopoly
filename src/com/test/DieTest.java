@@ -1,6 +1,7 @@
-package test;
+package com.test;
 
 import org.junit.jupiter.api.Test;
+import com.game.*;
 
 public class DieTest {
 

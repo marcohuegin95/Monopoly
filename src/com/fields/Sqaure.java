@@ -1,4 +1,4 @@
-package fields;
+package com.fields;
 
 public interface Sqaure {
 }

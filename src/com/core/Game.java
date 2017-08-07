@@ -1,7 +1,7 @@
-package core;
+package com.core;
 
 import java.util.Scanner;
-import  
+import com.game.*;
 
 /**
  * Created by marco on 25.07.17.

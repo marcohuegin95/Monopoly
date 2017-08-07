@@ -1,4 +1,4 @@
-package game;
+package com.game;
 
 /**
  * Created by marco on 25.07.17.
@@ -28,7 +28,7 @@ public class Player {
             }
     }
 
-    public void takeTurn(Die die1, Die die2){
+    public void takeTurn(com.game.Die die1, com.game.Die die2){
         die1.roll();
         die2.roll();
 
