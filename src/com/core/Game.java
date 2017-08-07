@@ -1,4 +1,7 @@
+package core;
+
 import java.util.Scanner;
+import  
 
 /**
  * Created by marco on 25.07.17.
@@ -9,10 +12,10 @@ public class Game {
     Die die1;
     Die die2;
     Board board;
-    Player []player;
+    Player[]player;
 
     public Game(int numberOfPlayers) {
-        Player []player= new Player[numberOfPlayers];
+        Player[]player= new Player[numberOfPlayers];
         for (int i1=0;i1<numberOfPlayers;i1++){
            Scanner scan = new Scanner(System.in);
            System.out.print("Bitte geben Sie ein Name für Spieler "+i1+" ein: ");
