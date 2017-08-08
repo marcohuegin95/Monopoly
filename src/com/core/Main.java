@@ -2,6 +2,13 @@ package com.core;
 
 import java.util.Scanner;
 
+/**
+ * Diese Klasse dient dazu, das Spiel zu starteb
+ *
+ * @author Marco Hügin
+ * @version 1.0
+ */
+
 public class Main {
 
     public static void main(String[] args) {

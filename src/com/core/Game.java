@@ -3,6 +3,14 @@ package com.core;
 import java.util.Scanner;
 import com.game.*;
 
+/**
+ * Diese Klasse enthält die komplette Spiellogik (Die komplette Durchführung eines Spielzugs).
+ * Hier werden die Objekte für die Spieler, Würfel und das Spielboard erzeugt.
+ *
+ * @author Marco Hügin
+ * @version 1.0
+ */
+
 public class Game {
     public String namePlayer;
     public int colorPlayer;

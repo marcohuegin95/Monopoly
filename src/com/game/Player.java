@@ -1,5 +1,13 @@
 package com.game;
 
+/**
+ * Diese Klasse stellt die Logik der Spieler bereit.
+ * Dazu zählt die Initaliserung der Spieler, das  transferieren von Geldern, usw.
+ *
+ * @author Marco Hügin
+ * @version 1.0
+ */
+
 public class Player {
     public enum color {
         RED, GREEN, BLUE, YELLOW, ORANGE, BLACK;

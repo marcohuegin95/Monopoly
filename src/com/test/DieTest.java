@@ -3,6 +3,13 @@ package com.test;
 import org.junit.jupiter.api.Test;
 import com.game.*;
 
+/**
+ * Diese Klasse stellt einen einfachen Test für die Spielwürfel bereit.
+ *
+ * @author Marco Hügin
+ * @version 1.0
+ */
+
 public class DieTest {
 
     @Test
