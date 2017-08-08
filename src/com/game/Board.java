@@ -1,11 +1,13 @@
 package com.game;
+import com.fields.*;
 
 public class Board {
 
-    private Field[] board = new Field[20];
+    public final Field[] board = new Field[20];
 
     public Board() {
-        //board[0]=
+        //board[0]= new Go();
+        //board[1]= ;
 
     }
 

@@ -11,10 +11,10 @@ public class Main {
         System.out.println("");
         System.out.print("Bitte geben Sie die Anzahl der Spieler an: ");
 
-        Scanner scanner= new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         numberOfPlayers = scanner.nextInt();
 
-        Game game= new Game(numberOfPlayers);
+        Game game = new Game(numberOfPlayers);
 
     }
 }

@@ -1,6 +1,15 @@
-package com.game;
+package com.fields;
 
-public class Property {
+import com.game.Player;
+
+/**
+ * Diese Klasse stellt das Verhalten bereit, wenn ein Spiel auf das Feld 'Grundstück' kommt.
+ *
+ * @author Marco Hügin
+ * @version 1.0
+ */
+
+public class Property implements Sqaure{
     private String name;
     private int price;
     private int category;
@@ -41,5 +50,15 @@ public class Property {
 
     public void setOwner(int owner) {
         this.owner = owner;
+    }
+
+    @Override
+    public void walkOn(Player player) {
+
+    }
+
+    @Override
+    public void walkOver(Player player) {
+
     }
 }

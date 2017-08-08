@@ -1,31 +1,34 @@
 package com.game;
 
 public class Player {
-    public enum  color{
-        RED,GREEN,BLUE, YELLOW, ORANGE, BLACK;
+    public enum color {
+        RED, GREEN, BLUE, YELLOW, ORANGE, BLACK;
     }
+
     private int money;
     private String name;
     private color color;
+    private boolean inJail;
 
     public Player(String name, color pcolor) {
         this.name = name;
         this.color = pcolor;
+        inJail= false;
     }
 
-    public void transferMoney(int getMoney){
-        money=money+getMoney;
+    public void transferMoney(int getMoney) {
+        money = money + getMoney;
     }
 
-    public boolean isBankrupt(){
-        if (money<=0) {
+    public boolean isBankrupt() {
+        if (money <= 0) {
             return true;
-        }else{
+        } else {
             return false;
-            }
+        }
     }
 
-    public void takeTurn(com.game.Die die1, com.game.Die die2){
+    public void takeTurn(com.game.Die die1, com.game.Die die2) {
         die1.roll();
         die2.roll();
 
@@ -40,12 +43,12 @@ public class Player {
 //        this.color = color;
 //    }
 
-    public int getMonrey() {
+    public int getMoney() {
         return money;
     }
 
-    public void setMonrey(int monrey) {
-        this.money = monrey;
+    public void setMoney(int money) {
+        this.money = money;
     }
 
     public String getName() {
@@ -54,5 +57,13 @@ public class Player {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public boolean isInJail() {
+        return inJail;
+    }
+
+    public void setInJail(boolean inJail) {
+        this.inJail = inJail;
     }
 }
