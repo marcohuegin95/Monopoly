@@ -1,4 +1,4 @@
 package com.fields;
 
-public interface FreeParking {
+public class FreeParking {
 }

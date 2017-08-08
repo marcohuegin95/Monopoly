@@ -1,8 +1,5 @@
 package com.game;
 
-/**
- * Created by marco on 25.07.17.
- */
 public class Player {
     public enum  color{
         RED,GREEN,BLUE, YELLOW, ORANGE, BLACK;

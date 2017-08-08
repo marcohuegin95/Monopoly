@@ -3,9 +3,6 @@ package com.core;
 import java.util.Scanner;
 import com.game.*;
 
-/**
- * Created by marco on 25.07.17.
- */
 public class Game {
     public String namePlayer;
     public int colorPlayer;

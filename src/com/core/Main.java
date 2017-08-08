@@ -2,9 +2,6 @@ package com.core;
 
 import java.util.Scanner;
 
-/**
- * Created by marco on 25.07.17.
- */
 public class Main {
 
     public static void main(String[] args) {
@@ -17,7 +14,7 @@ public class Main {
         Scanner scanner= new Scanner(System.in);
         numberOfPlayers = scanner.nextInt();
 
-        com.core.Game game= new com.core.Game(numberOfPlayers);
+        Game game= new Game(numberOfPlayers);
 
     }
 }

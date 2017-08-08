@@ -1,8 +1,5 @@
 package com.game;
 
-/**
- * Created by marco on 25.07.17.
- */
 public class Die {
     private int eyeCount;
 
