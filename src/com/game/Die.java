@@ -15,7 +15,7 @@ public class Die {
     }
 
     public void roll() {
-        eyeCount = (int) ((Math.random()) * 6 + 1);
+        setEyeCount((int) ((Math.random()) * 6 + 1));
     }
 
     public int getEyeCount() {

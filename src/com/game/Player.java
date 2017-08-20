@@ -23,9 +23,10 @@ public class Player {
     private boolean inJail;
     private int position;
 
-    public Player(String name, color pcolor) {
+    public Player(String name, color pcolor, int money) {
         this.name = name;
         this.color = pcolor;
+        this.money=money;
         inJail = false;
     }
 
