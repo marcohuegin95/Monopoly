@@ -13,11 +13,18 @@ import static com.game.GameUtils.*;
 
 public class Chance implements Sqaure {
     @Override
+    public String name() {
+        return "Chance";
+    }
+
+    @Override
     public void walkOn(Player player) {
         int randomMoney = randomMoney();
         player.transferMoney(randomMoney);
         System.out.println("Spieler " + player + " ist auf dem Feld 'Chance' und bekommt " + randomMoney + " €");
     }
+
+    //int amount = ThreadLocalRandom.current()
 
     @Override
     public void walkOver(Player player) {

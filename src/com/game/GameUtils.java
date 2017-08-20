@@ -24,8 +24,8 @@ public class GameUtils {
             return ((int) ((Math.random()) * 20 + 0)) * 10;
         } else if (selectRandomAmount == 2) { //Wird für selectRandomAmount 2 gewählt, wird eine negativer Betrag zwischen 0-300 gewählt
             return ((int) ((Math.random()) * -30 + 0)) * 10;
-        }else{
+        } else {
             return 0;
-        }
+        }// (int) Math.random ()*50-30)*10
     }
 }

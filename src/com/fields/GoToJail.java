@@ -9,7 +9,14 @@ import com.game.Player;
  * @version 1.0
  */
 
+//
+
 public class GoToJail implements Sqaure {
+    @Override
+    public String name() {
+        return "Geh ins Gefängnis";
+    }
+
     @Override
     public void walkOn(Player player) {
         player.setInJail(true);

@@ -1,5 +1,6 @@
 package com.fields;
 
+import com.fields.Sqaure;
 import com.game.Player;
 
 /**
@@ -9,7 +10,16 @@ import com.game.Player;
  * @version 1.0
  */
 
+
 public class Go implements Sqaure {
+
+    private final int SALARY = 200;
+
+    @Override
+    public String name() {
+        return "Start";
+    }
+
     @Override
     public void walkOn(Player player) {
         player.transferMoney(400);

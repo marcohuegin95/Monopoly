@@ -13,11 +13,17 @@ public class Property implements Sqaure{
     private String name;
     private int price;
     private int category;
-    private int owner;
+    private Player owner;
 
-    public void purchaseProperty(int balance, int color){
+    public void purchaseProperty(int balance, Player color){
         owner= color;
         
+    }
+
+    public Property(String name, int price, int category) {
+        this.name = name;
+        this.price = price;
+        this.category = category;
     }
 
     public String getName() {
@@ -44,17 +50,27 @@ public class Property implements Sqaure{
         this.category = category;
     }
 
-    public int getOwner() {
+    public Player getOwner() {
         return owner;
     }
 
-    public void setOwner(int owner) {
+    public void setOwner(Player owner) {
         this.owner = owner;
     }
 
-    @Override
-    public void walkOn(Player player) {
 
+    @Override
+    public String name() {
+        return "Property";
+    }
+
+    @Override
+    public void walkOn(final Player player) {
+        // if null==owner
+        // if (p.getBalance ()> price
+        // p.offerProperty (this)
+        //else if (p!= owner)
+        //1,5fachen Preis zahlen
     }
 
     @Override

@@ -12,6 +12,11 @@ import com.game.Player;
 public class IncomeTax implements Sqaure {
 
     @Override
+    public String name() {
+        return "Einkommenssteuer";
+    }
+
+    @Override
     public void walkOn(Player player) {
         int taxMoney = ((player.getMoney()) * (1 / 10) * (-1)); // Hole Geld, berechne 10% aus und negiere Betrag
         System.out.println("Spieler "+player+" ist auf dem Feld 'Einkommenssteuer' und muss "+taxMoney+"€ zahlen");

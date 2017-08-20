@@ -8,6 +8,10 @@ package com.game;
  * @version 1.0
  */
 
+
+//privat collection
+
+
 public class Player {
     public enum color {
         RED, GREEN, BLUE, YELLOW, ORANGE, BLACK;
@@ -17,11 +21,12 @@ public class Player {
     private String name;
     private color color;
     private boolean inJail;
+    private int position;
 
     public Player(String name, color pcolor) {
         this.name = name;
         this.color = pcolor;
-        inJail= false;
+        inJail = false;
     }
 
     public void transferMoney(int getMoney) {
@@ -36,11 +41,11 @@ public class Player {
         }
     }
 
-    public void takeTurn(com.game.Die die1, com.game.Die die2) {
+    public void takeTurn(Die die1, Die die2) {
         die1.roll();
         die2.roll();
-
-
+        int result = die1.getEyeCount() + die2.getEyeCount();
+        this.setPosition(position+result);
     }
 
 //    public int getColor() {
@@ -73,5 +78,13 @@ public class Player {
 
     public void setInJail(boolean inJail) {
         this.inJail = inJail;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public void setPosition(int position) {
+        this.position = position;
     }
 }

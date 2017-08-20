@@ -22,6 +22,7 @@ public class Main {
         numberOfPlayers = scanner.nextInt();
 
         Game game = new Game(numberOfPlayers);
+        game.startGame();
 
     }
 }

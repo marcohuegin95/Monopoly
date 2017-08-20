@@ -11,6 +11,11 @@ import com.game.Player;
 
 public class Jail implements Sqaure {
     @Override
+    public String name() {
+        return "Gefängnis";
+    }
+
+    @Override
     public void walkOn(Player player) {
 
     }

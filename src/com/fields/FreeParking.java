@@ -11,6 +11,11 @@ import com.game.Player;
 
 public class FreeParking implements Sqaure {
     @Override
+    public String name() {
+        return "Frei Parken";
+    }
+
+    @Override
     public void walkOn(Player player) {
         System.out.println("Spieler " + player + " ist auf dem Feld 'Freies Parken'");
     }

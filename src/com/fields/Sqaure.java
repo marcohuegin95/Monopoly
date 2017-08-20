@@ -11,8 +11,12 @@ import com.game.*;
 
 public interface Sqaure {
 
+    String name();
+
     void walkOn(Player player);
 
     void walkOver(Player player);
 
 }
+
+//

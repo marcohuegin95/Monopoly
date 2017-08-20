@@ -19,6 +19,9 @@ public class Game {
     Board board;
     Player[]player;
 
+
+    //Hier die Spieler
+
     public Game(int numberOfPlayers) {
         Player[]player= new Player[numberOfPlayers];
         for (int i1=0;i1<numberOfPlayers;i1++){
@@ -33,5 +36,9 @@ public class Game {
     die2 = new Die();
     board = new Board();
 
+    }
+
+    public void startGame(){
+        // Starte Spiel hier!
     }
 }
