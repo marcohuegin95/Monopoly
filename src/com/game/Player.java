@@ -1,5 +1,9 @@
 package com.game;
 
+import com.fields.Property;
+
+import java.util.ArrayList;
+
 /**
  * Diese Klasse stellt die Logik der Spieler bereit.
  * Dazu zählt die Initaliserung der Spieler, das  transferieren von Geldern, usw.
@@ -7,10 +11,6 @@ package com.game;
  * @author Marco Hügin
  * @version 1.0
  */
-
-
-//privat collection
-
 
 public class Player {
     public enum color {
@@ -22,12 +22,17 @@ public class Player {
     private color color;
     private boolean inJail;
     private int position;
+    private int roundsPlayerInJail; //Anzahl der Runden, in der der Spieler im Gefängnis sitz
+    ArrayList<Property> playerPropertyList = new ArrayList<Property>();
 
-    public Player(String name, color pcolor, int money) {
+    public Player(String name, color pcolor, int money, int position) {
         this.name = name;
         this.color = pcolor;
-        this.money=money;
+        this.money = money;
+        this.position = position;
         inJail = false;
+        this.playerPropertyList.clear();
+        roundsPlayerInJail=0;
     }
 
     public void transferMoney(int getMoney) {
@@ -45,17 +50,33 @@ public class Player {
     public void takeTurn(Die die1, Die die2) {
         die1.roll();
         die2.roll();
-        int result = die1.getEyeCount() + die2.getEyeCount();
-        this.setPosition(position+result);
+        int resultDies = die1.getEyeCount() + die2.getEyeCount();
+        this.setPosition(getPosition() + resultDies);
     }
 
-//    public int getColor() {
-//        return color;
-//    }
+    public void removeAllPropertys(Player player){
+        player.playerPropertyList.clear();
+    }
 
-//    public void setColor(int color) {
-//        this.color = color;
-//    }
+    public void addPropertyToPropertyList(Player player, Property property){
+        player.playerPropertyList.add(property);
+    }
+
+    public Player.color getColor() {
+        return color;
+    }
+
+    public int getRoundsPlayerInJail() {
+        return roundsPlayerInJail;
+    }
+
+    public void setRoundsPlayerInJail(int roundsPlayerInJail) {
+        this.roundsPlayerInJail = roundsPlayerInJail;
+    }
+
+    public void setColor(Player.color color) {
+        this.color = color;
+    }
 
     public int getMoney() {
         return money;

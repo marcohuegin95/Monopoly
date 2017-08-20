@@ -25,7 +25,7 @@ public class Game {
             Scanner scan = new Scanner(System.in);
             System.out.print("Bitte geben Sie ein Name für Spieler " + i1 + " ein: ");
             namePlayer = scan.next();
-            player[i1] = new Player(namePlayer, Player.color.ORANGE, 0);
+            player[i1] = new Player(namePlayer, Player.color.ORANGE, 0,1);
         }
     }
 

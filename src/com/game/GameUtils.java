@@ -17,7 +17,6 @@ public class GameUtils {
      * @return gibt eine Zufallszahl (Betrag) zurück (Entweder negativ, positiv oder 0)
      */
     public static int randomMoney() {
-
         return ((int) ((Math.random()) * 50 - 30)) * 10;
     }
 }

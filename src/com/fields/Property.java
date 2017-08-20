@@ -9,18 +9,22 @@ import com.game.Player;
  * @version 1.0
  */
 
-public class Property implements Sqaure{
-    private String name;
-    private int price;
-    private int category;
-    private Player owner;
+public class Property implements Sqaure {
 
-    public void purchaseProperty(int balance, Player color){
-        owner= color;
-        
+    public enum category {
+        PURPLE, ORANGE, YELLOW, BLUE;
     }
 
-    public Property(String name, int price, int category) {
+    private String name;
+    private int price;
+    private category category;
+    private Player owner;
+
+    public void purchaseProperty(int balance, Player color) {
+        owner = color;
+    }
+
+    public Property(String name, int price, category category) {
         this.name = name;
         this.price = price;
         this.category = category;
@@ -42,11 +46,11 @@ public class Property implements Sqaure{
         this.price = price;
     }
 
-    public int getCategory() {
+    public category getCategory() {
         return category;
     }
 
-    public void setCategory(int category) {
+    public void setCategory(category category) {
         this.category = category;
     }
 
