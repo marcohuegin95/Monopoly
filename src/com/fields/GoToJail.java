@@ -26,6 +26,6 @@ public class GoToJail implements Sqaure {
 
     @Override
     public void walkOver(Player player) {
-        //Keine Aktion nötig, wenn Spieler über diese Feld geht!
+
     }
 }

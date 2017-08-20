@@ -32,7 +32,7 @@ public class Player {
         this.position = position;
         inJail = false;
         this.playerPropertyList.clear();
-        roundsPlayerInJail=0;
+        roundsPlayerInJail = 0;
     }
 
     public void transferMoney(int getMoney) {
@@ -54,12 +54,18 @@ public class Player {
         this.setPosition(getPosition() + resultDies);
     }
 
-    public void removeAllPropertys(Player player){
+    public void removeAllPropertys(Player player) {
         player.playerPropertyList.clear();
     }
 
-    public void addPropertyToPropertyList(Player player, Property property){
+    public void purchaseProperty(Player player, Property property, int purchasePrice) {
         player.playerPropertyList.add(property);
+        player.transferMoney(purchasePrice*(-1));
+        property.setOwner(player);
+    }
+
+    public void payRent(Player player, Property property,int rentalFee){
+        player.transferMoney(rentalFee*(-1));
     }
 
     public Player.color getColor() {
@@ -108,5 +114,13 @@ public class Player {
 
     public void setPosition(int position) {
         this.position = position;
+    }
+
+    public ArrayList<Property> getPlayerPropertyList() {
+        return playerPropertyList;
+    }
+
+    public void setPlayerPropertyList(ArrayList<Property> playerPropertyList) {
+        this.playerPropertyList = playerPropertyList;
     }
 }
