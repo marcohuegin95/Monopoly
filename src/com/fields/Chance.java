@@ -18,13 +18,13 @@ public class Chance implements Sqaure {
     }
 
     @Override
-    public void walkOn(Player player) {
+    public void walkOn(final Player player) {
         player.transferMoney(randomMoney());
-        System.out.println("Spieler " + player + " ist auf dem Feld 'Chance' und bekommt " + randomMoney() + " €");
+        System.out.println("Spieler " + player.getName() + " ist auf dem Feld 'Chance' und bekommt " + randomMoney() + " €");
     }
 
     @Override
-    public void walkOver(Player player) {
+    public void walkOver(final Player player) {
         //Keine Aktion nötig, wenn Spieler über diese Feld geht!
     }
 }

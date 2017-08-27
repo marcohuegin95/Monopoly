@@ -16,13 +16,13 @@ public class FreeParking implements Sqaure {
     }
 
     @Override
-    public void walkOn(Player player) {
+    public void walkOn(final Player player) {
         //Bisher keine Aktion erforderlich
-        System.out.println("Spieler " + player + " ist auf dem Feld 'Freies Parken'");
+        System.out.println("Spieler " + player.getName() + " ist auf dem Feld 'Freies Parken'");
     }
 
     @Override
-    public void walkOver(Player player) {
+    public void walkOver(final Player player) {
         //Keine Aktion nötig, wenn Spieler über diese Feld geht!
     }
 }

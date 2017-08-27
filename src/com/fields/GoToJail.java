@@ -18,14 +18,14 @@ public class GoToJail implements Sqaure {
     }
 
     @Override
-    public void walkOn(Player player) {
+    public void walkOn(final Player player) {
         player.setInJail(true);
         player.setPosition(6);
-        System.out.println("Spieler " + player + " geht auf das Feld 'Gehe ins Gefängnis' und geht somit direkt ins Gefängnis");
+        System.out.println("Spieler " + player.getName() + " geht auf das Feld 'Gehe ins Gefängnis' und geht somit direkt ins Gefängnis");
     }
 
     @Override
-    public void walkOver(Player player) {
+    public void walkOver(final Player player) {
 
     }
 }

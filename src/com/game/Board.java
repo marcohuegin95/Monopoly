@@ -5,7 +5,7 @@ import com.fields.*;
 import java.util.ArrayList;
 
 /**
- * Diese Klasse stellt das Verhalten und Daten bezüglich des Spielfelds (Board) bereit.
+ * Diese Klasse initalisiert das Board durch den Konstruktor.
  *
  * @author Marco Hügin
  * @version 1.0
@@ -14,15 +14,8 @@ import java.util.ArrayList;
 public class Board {
 
     private final ArrayList<Sqaure> fields = new ArrayList<>();
-    //private final Jail jailSquare ) new Jail();
 
     public Board() {
-
-        // Verschiedene Kategorieren durch Enum
-        // 1-> lila (PURPLE)
-        // 2-> orange (ORANGE)
-        // 3-> gelb (YELLOW)
-        // 4-> blau (BLUE)
 
         fields.add(new Go());
         fields.add(new Property("Dübendorfstraße", 60, Property.category.PURPLE));
@@ -46,4 +39,7 @@ public class Board {
         fields.add(new Property("Bahnhofstrasse", 400, Property.category.BLUE));
     }
 
+    public ArrayList<Sqaure> getFields() {
+        return fields;
+    }
 }

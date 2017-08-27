@@ -2,8 +2,10 @@ package com.fields;
 
 import com.game.Player;
 
+import java.util.Scanner;
+
 /**
- * Diese Klasse stellt das Verhalten bereit, wenn ein Spiel auf das Feld 'Grundstück' kommt.
+ * Diese Klasse stellt das Verhalten bereit, wenn ein Spiel auf das Feld 'Grundstück' bzw Straße kommt.
  *
  * @author Marco Hügin
  * @version 1.0
@@ -58,43 +60,41 @@ public class Property implements Sqaure {
         this.owner = owner;
     }
 
-    /**
-     * Methode, um bereits verkaufte Objekt wieder freizugeben
-     */
-
-    public void propertyFree(Player player, Property property){
-        player.getPlayerPropertyList().remove(this);
-        // TODO fertigstellen!
-    }
-
-
     @Override
     public String name() {
-        return "Property: "+getName();
+        return "Property: " + getName();
     }
 
     @Override
-    public void walkOn(Player player) {
+    public void walkOn(final Player player) {
 
         if (getOwner() == null) {
             if (player.getMoney() > getPrice()) {
-                player.purchaseProperty(player,this,getPrice());
+                player.purchaseProperty(this, getPrice());
             } else {
-                System.out.println("Spieler " + player + " hat nicht genug Geld um das Grundstück zu erwerben");
+                System.out.println("Spieler " + player.getName() + " hat nicht genug Geld um das Grundstück zu erwerben");
             }
         } else if (player != owner) {
-            int newPrice = (int) (getPrice() * (1.5)); // Spieler muss 1,5 mal so viel zahlen wie der eigentliche Grundstückspreis war
-            player.payRent(player,this,newPrice);
+            System.out.println("Will der Besitzer der Straße (Spieler " + this.getOwner().getName() + ") die Straße an den Spieler " + player.getName() + " abgeben? ('Ja' oder 'Nein' schreiben)");
+            Scanner scanner = new Scanner(System.in);   //Benutzer-Interaktion erstmal durch Texteingabe, wird später durch graf. Oberfläche abgelöst
+            String eingabeUser = scanner.next();
+            while (eingabeUser != "Ja" || eingabeUser != "Nein") {
+                System.out.print("Falsche Eingabe! Bitte geben sie 'Ja' oder 'Nein' ein: ");
+                eingabeUser = scanner.next();
+            }
+            if (eingabeUser == "Ja") {
+                player.salePropertie(this, this.getOwner());
+            } else if (eingabeUser == "Nein") {
+                int newPrice = (int) (getPrice() * (1.5)); // Spieler muss 1,5 mal so viel zahlen wie der eigentliche Grundstückspreis war
+                this.getOwner().transferMoney(newPrice);
+            } else {
+                System.out.println("Fehler beim Einlesen des Scanners");
+            }
         }
-        // if null==owner
-        // if (p.getBalance ()> price
-        // p.offerProperty (this)
-        //else if (p!= owner)
-        //1,5fachen Preis zahlen
     }
 
     @Override
-    public void walkOver(Player player) {
+    public void walkOver(final Player player) {
         //Keine Aktion nötig, wenn Spieler über diese Feld geht!
     }
 }
