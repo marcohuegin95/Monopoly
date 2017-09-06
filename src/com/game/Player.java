@@ -2,6 +2,9 @@ package com.game;
 
 import com.fields.Property;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -26,7 +29,6 @@ public class Player {
     private boolean inJail;
     private int position;
     private int roundsPlayerInJail;        //Anzahl der Runden, in der der Spieler im Gefängnis sitz
-    private final int STARTPOSITION_PLAYER = 0;    //Konstante für das erste Feld
     ArrayList<Property> playerPropertyList = new ArrayList<Property>();
 
     public Player(String name, color pcolor, int money, int position) {
@@ -65,25 +67,25 @@ public class Player {
         } else {
             die1.roll();
             die2.roll();
-            int oldPosition = this.getPosition();
+            System.out.println("Spieler " + this.getName() + " ist am Zug un Würfelt eine " + die1.getEyeCount() + " und " + die2.getEyeCount());
             int resultDies = die1.getEyeCount() + die2.getEyeCount();
-            int counterPlayer = 1;  //Zusätzlicher Counter der die Felder zählt, wo der Spieler drüberläuft. Ist nötig, da der Counter aus der for-Schleife immer weiter läuft.
+            //int counterPlayer = 1;  //Zusätzlicher Counter der die Felder zählt, wo der Spieler drüberläuft. Ist nötig, da der Counter aus der for-Schleife immer weiter läuft.
             for (int i = 1; i < resultDies; i++) {
-                if ((this.getPosition() + counterPlayer) > board.getFields().size()) {
-                    this.setPosition(STARTPOSITION_PLAYER);
-                    board.getFields().get(STARTPOSITION_PLAYER).walkOver(this);
-                    counterPlayer = 1;  // Counter wird auf 1 gesetzt, da ab Position 1 (Feld 0) sonst nicht alle Felder erreicht werden
-                } else {
-                    board.getFields().get(this.getPosition() + counterPlayer).walkOver(this);
+                int actPosition = this.position + i;
+                if (actPosition >= board.getFields().size()) {
+                    actPosition = actPosition - board.getFields().size();
                 }
-                counterPlayer++;
+                board.getFields().get(actPosition).walkOver(this);
             }
-            if ((oldPosition + resultDies) > board.getFields().size()) {
-                this.setPosition(oldPosition + resultDies - board.getFields().size());
-            } else {
-                this.setPosition(oldPosition + resultDies);
+            int newActPosition = this.position + resultDies;
+            if (newActPosition >= board.getFields().size()) {
+                newActPosition = newActPosition - board.getFields().size();
             }
-            board.getFields().get(this.getPosition()).walkOn(this);
+            board.getFields().get(newActPosition).walkOn(this);
+            this.position = this.position + resultDies;
+            if (this.position >= board.getFields().size()) {
+                this.position = this.position - board.getFields().size();
+            }
         }
     }
 
@@ -102,20 +104,21 @@ public class Player {
             this.takeTurnInJail(die1, die2, board);
             System.out.println("Spieler " + this.getName() + " kommt aus dem Gefängnis und zahlt nochmals 50€");
         } else {
-            System.out.println("Wollen sie 50€ zahlen um direkt aus dem Gefägnis zu kommen('Ja' oder 'Nein' schreiben)?");
-            Scanner scanner = new Scanner(System.in);   //Benutzer-Interaktion erstmal durch Texteingabe, wird später durch graf. Oberfläche abgelöst
-            String eingabeUser = scanner.next();
-            while (eingabeUser != "Ja" || eingabeUser != "Nein") {
-                System.out.println("Falsche Eingabe! Bitte geben sie 'Ja' oder 'Nein' ein! ");
-                eingabeUser = scanner.next();
+            System.out.println("Wollen sie 50€ zahlen um direkt aus dem Gefägnis zu kommen('1=Ja' oder '2=Nein' schreiben)?");
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            int eingabeUser = 0;
+            try {
+                eingabeUser = Integer.parseInt(br.readLine());
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-            if (eingabeUser == "Ja") {
+            if (eingabeUser == 1) {
                 this.transferMoney(-50);
                 this.setInJail(false);
                 this.setRoundsPlayerInJail(0);
                 this.takeTurn(die1, die2, board);
                 System.out.println("Der Spieler " + this.getName() + " bezahlt 50€ und geht sofort aus dem Gefängnis!");
-            } else if (eingabeUser == "Nein") {
+            } else if (eingabeUser == 2) {
                 die1.roll();
                 die2.roll();
                 if (die1.getEyeCount() == die2.getEyeCount()) {

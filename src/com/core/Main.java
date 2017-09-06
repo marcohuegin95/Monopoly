@@ -1,5 +1,6 @@
 package com.core;
 
+import javax.swing.*;
 import java.util.Scanner;
 
 /**

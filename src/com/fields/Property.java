@@ -2,6 +2,9 @@ package com.fields;
 
 import com.game.Player;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 
 /**
@@ -75,16 +78,17 @@ public class Property implements Sqaure {
                 System.out.println("Spieler " + player.getName() + " hat nicht genug Geld um das Grundstück zu erwerben");
             }
         } else if (player != owner) {
-            System.out.println("Will der Besitzer der Straße (Spieler " + this.getOwner().getName() + ") die Straße an den Spieler " + player.getName() + " abgeben? ('Ja' oder 'Nein' schreiben)");
-            Scanner scanner = new Scanner(System.in);   //Benutzer-Interaktion erstmal durch Texteingabe, wird später durch graf. Oberfläche abgelöst
-            String eingabeUser = scanner.next();
-            while (eingabeUser != "Ja" || eingabeUser != "Nein") {
-                System.out.print("Falsche Eingabe! Bitte geben sie 'Ja' oder 'Nein' ein: ");
-                eingabeUser = scanner.next();
+            System.out.print("Will der Besitzer der Straße (Spieler " + this.getOwner().getName() + ") die Straße an den Spieler " + player.getName() + " abgeben? ('1=Ja' oder '2=Nein' schreiben)");
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            int eingabeUser = 0;
+            try {
+                eingabeUser = Integer.parseInt(br.readLine());
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-            if (eingabeUser == "Ja") {
+            if (eingabeUser == 1) {
                 player.salePropertie(this, this.getOwner());
-            } else if (eingabeUser == "Nein") {
+            } else if (eingabeUser == 2) {
                 int newPrice = (int) (getPrice() * (1.5)); // Spieler muss 1,5 mal so viel zahlen wie der eigentliche Grundstückspreis war
                 this.getOwner().transferMoney(newPrice);
             } else {

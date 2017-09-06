@@ -19,6 +19,7 @@ public class Game {
     Die die1;
     Die die2;
     public Board board;
+    int counter = 1;
     ArrayList<Player> player = new ArrayList<>();
 
     public Game(int numberOfPlayers) {
@@ -40,9 +41,13 @@ public class Game {
      * ist der erste Spieler der Liste wieder an der Reihe. Ist nur noch ein Spieler im Spiel wird das Spiel beendet.
      */
     public void gameController() {
+        System.out.println("");
+        while (player.size() >= 2){
         Iterator<Player> iterator = player.iterator();
-        while (iterator.hasNext() && player.size() >= 2) {
+        while (iterator.hasNext() /*&& player.size() >= 2*/) {
             Player playerOnTurn = iterator.next();
+            System.out.println("-----------Spielzug Nr." + counter + " -----------");
+            counter++;
             System.out.println("Spieler: " + playerOnTurn.getName() + " ist am Spielzug (Kontostand: " + playerOnTurn.getMoney() + ")");
             playerOnTurn.takeTurn(die1, die2, board);
             if (playerOnTurn.isBankrupt()) {
@@ -50,6 +55,7 @@ public class Game {
                 playerOnTurn.deleteProperties(playerOnTurn);
                 System.out.println("Spieler " + playerOnTurn.getName() + " wird aus dem Spiel entfernt");
             }
+        }
         }
         System.out.println("Spieler " + player.get(0).getName() + " hat gewonnen (Mit einem Kontostand von " + player.get(0).getMoney() + "€)");
     }

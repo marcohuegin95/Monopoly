@@ -20,12 +20,12 @@ public class Go implements Sqaure {
     @Override
     public void walkOn(final Player player) {
         player.transferMoney(400);
-        System.out.println("Spieler " + player + " geht auf das Feld 'Los' und kassiert 400€");
+        System.out.println("Spieler " + player.getName() + " geht auf das Feld 'Los' und kassiert 400€");
     }
 
     @Override
     public void walkOver(final Player player) {
         player.transferMoney(200);
-        System.out.println("Spieler " + player + " geht über 'Los' und kassiert 200€");
+        System.out.println("Spieler " + player.getName() + " geht über 'Los' und kassiert 200€");
     }
 }
