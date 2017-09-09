@@ -13,3 +13,6 @@ Marco Huegin (DHBW Loerrach)
 
 Intellij IDEA (Linux)
 
+#### UI
+![alt text](https://raw.githubusercontent.com/marcohuegin95/Monopoly/master/src/com/ui_design.jpg)
+
