@@ -3,7 +3,6 @@ Monopoly
 
 
 A Java version of the popular board game Monopoly.
-Only command line!
 
 #### <i class="icon-pencil"></i>Author
 
